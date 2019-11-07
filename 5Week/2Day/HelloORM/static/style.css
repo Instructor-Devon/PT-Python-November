@@ -1,0 +1,10 @@
+body {
+    padding: 20px;
+}
+.flexin {
+    display: flex;
+    justify-content: space-between;
+}
+.flexin>section {
+    width: 45%;
+}
