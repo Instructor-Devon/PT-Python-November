@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Hello ORMs</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Dogs Dot Com</h1>
+        <div class="flexin">
+            <section>
+                <h2>Add a new Dog!</h2>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li class="error">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+                <form action="/create" method="post">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input class="form-control" type="text" name="name" placeholder="Dunkin'">
+                    </div>
+                    <div class="form-group">
+                        <label for="breed">Breed:</label>
+                        <input class="form-control" type="text" name="breed" placeholder="Westie">
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight:</label>
+                        <input class="form-control" type="number" name="weight" placeholder="17">
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </form>
+            </section>
+            <section>
+                <h2>Our Dogs:</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Breed</th>
+                            <th>Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for dog in dogs %}
+                        <tr>
+                            <td>{{ dog.name }}</td>
+                            <td>{{ dog.breed }}</td>
+                            <td>{{ dog.weight }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>
