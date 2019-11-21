@@ -1,7 +1,10 @@
 from sqlalchemy.sql import func
 from config import db, ma
 
+
+
 class Dog(db.Model):	
+
     __tablename__ = "dogs"    # optional		
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(45))

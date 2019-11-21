@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script
         defer
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script defer src="{{ url_for('static', filename='main.js') }}"></script>
     <title>Hello ORMs</title>
 </head>
 <body>
     <div class="container">
         <h1>Dogs Dot Com</h1>
-        <button>DO IT</button>
         <div class="flexin">
             <section>
                 <h2>Add a new Dog!</h2>
@@ -30,18 +29,18 @@
                 </ul>
                 {% endif %}
                 {% endwith %}
-                <form id="dog-form" action="/create" method="post">
+                <form id="dogform" action="#" method="post">
                     <div class="form-group">
                         <label for="name">Name:</label>
-                        <input class="form-control" type="text" name="name" id="name" placeholder="Dunkin'">
+                        <input class="form-control" type="text" id="name" name="name" placeholder="Dunkin'">
                     </div>
                     <div class="form-group">
                         <label for="breed">Breed:</label>
-                        <input class="form-control" type="text" name="breed" id="breed" placeholder="Westie">
+                        <input class="form-control" type="text" id="breed" name="breed" placeholder="Westie">
                     </div>
                     <div class="form-group">
                         <label for="weight">Weight:</label>
-                        <input class="form-control" type="number" name="weight" id="weight" placeholder="17">
+                        <input class="form-control" type="number" id="weight" name="weight" placeholder="17">
                     </div>
                     <input class="btn btn-primary" type="submit" value="Submit">
                 </form>
@@ -56,8 +55,7 @@
                             <th>Weight</th>
                         </tr>
                     </thead>
-                    <tbody id="dog-body">
-                    
+                    <tbody id="dogs-table">
                     </tbody>
                 </table>
             </section>
